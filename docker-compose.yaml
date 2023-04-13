@@ -1,0 +1,52 @@
+version: '3.5'
+
+networks:
+  qdealer_network:
+    name: qdealer_network
+
+services:
+  qdealer:
+    container_name: qdealer
+    stdin_open: true
+    build: ./
+    volumes:
+      - ./qdealer:/app/qdealer
+
+    ports:
+      - 9011:8000
+    networks:
+      - qdealer_network
+
+    depends_on:
+      - qdealer_database
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+
+      - POSTGRES_HOST=qdealer_database
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=qdealer_local
+
+  qdealer_database:
+    container_name: qdealer_database
+    stdin_open: true
+    image: postgres:14.2
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "qdealer_local"
+    ports:
+      - 37099:5432
+    restart: unless-stopped
+    tty: true
+    healthcheck:
+      test: [ "CMD", "psql", "-U", "postgres", "-c", "SELECT 1" ]
+      timeout: 20s
+      retries: 10
+    networks:
+      - qdealer_network
+    volumes:
+      - qdealer_database_volume:/var/lib/postgresql/data
+
+volumes:
+  qdealer_database_volume:
+    driver: local

@@ -1,0 +1,11 @@
+.idea
+.venv*
+.docker*
+__pycache__/
+.env
+*egg-info**
+*pytest_cache*
+.vscode/*
+!*/launch.json
+tmp/
+.devcontainer/
