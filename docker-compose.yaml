@@ -26,6 +26,10 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=qdealer_local
+      - SECRET_KEY=supersecretkey
+      - AWS_ACCESS_KEY_ID=dummy_access_key
+      - AWS_SECRET_ACCESS_KEY=dummy_secret_key
+      - AWS_S3_BUCKET_NAME=dummy_bucket
 
   qdealer_database:
     container_name: qdealer_database
@@ -35,7 +39,7 @@ services:
       POSTGRES_PASSWORD: "postgres"
       POSTGRES_DB: "qdealer_local"
     ports:
-      - 37099:5432
+      - 37100:5432
     restart: unless-stopped
     tty: true
     healthcheck:
