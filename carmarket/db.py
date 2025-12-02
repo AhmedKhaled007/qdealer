@@ -1,7 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
-from qdealer.utils.config import settings
+from carmarket.utils.config import settings
 
 
 SQLALCHEMY_DATABASE_URL = settings.SQLALCHEMY_DATABASE_URI

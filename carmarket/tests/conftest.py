@@ -2,7 +2,7 @@ import os
 import pytest
 from typing import Generator, Callable
 
-from qdealer.utils.config import settings
+from carmarket.utils.config import settings
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy import Engine, create_engine
 from sqlalchemy_utils import database_exists, create_database, drop_database

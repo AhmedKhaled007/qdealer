@@ -1,43 +1,43 @@
 version: '3.5'
 
 networks:
-  qdealer_network:
-    name: qdealer_network
+  carmarket_network:
+    name: carmarket_network
 
 services:
-  qdealer:
-    container_name: qdealer
+  carmarket:
+    container_name: carmarket
     stdin_open: true
     build: ./
     volumes:
-      - ./qdealer:/app/qdealer
+      - ./carmarket:/app/carmarket
 
     ports:
       - 9011:8000
     networks:
-      - qdealer_network
+      - carmarket_network
 
     depends_on:
-      - qdealer_database
+      - carmarket_database
     environment:
       - PYTHONDONTWRITEBYTECODE=1
 
-      - POSTGRES_HOST=qdealer_database
+      - POSTGRES_HOST=carmarket_database
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=qdealer_local
+      - POSTGRES_DB=carmarket_local
       - SECRET_KEY=supersecretkey
       - AWS_ACCESS_KEY_ID=dummy_access_key
       - AWS_SECRET_ACCESS_KEY=dummy_secret_key
       - AWS_S3_BUCKET_NAME=dummy_bucket
 
-  qdealer_database:
-    container_name: qdealer_database
+  carmarket_database:
+    container_name: carmarket_database
     stdin_open: true
     image: postgres:14.2
     environment:
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "qdealer_local"
+      POSTGRES_DB: "carmarket_local"
     ports:
       - 37100:5432
     restart: unless-stopped
@@ -47,10 +47,10 @@ services:
       timeout: 20s
       retries: 10
     networks:
-      - qdealer_network
+      - carmarket_network
     volumes:
-      - qdealer_database_volume:/var/lib/postgresql/data
+      - carmarket_database_volume:/var/lib/postgresql/data
 
 volumes:
-  qdealer_database_volume:
+  carmarket_database_volume:
     driver: local

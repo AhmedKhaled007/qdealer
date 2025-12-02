@@ -2,10 +2,10 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 from sqlalchemy import or_, select
-from qdealer.utils.security import gen_password_hash, verify_password
-from qdealer.crud.base import CRUDBase
-from qdealer.models import User
-from qdealer.schemas import UserCreate
+from carmarket.utils.security import gen_password_hash, verify_password
+from carmarket.crud.base import CRUDBase
+from carmarket.models import User
+from carmarket.schemas import UserCreate
 
 
 class CRUDUser(CRUDBase[User, UserCreate]):

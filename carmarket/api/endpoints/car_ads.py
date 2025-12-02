@@ -3,10 +3,10 @@ from uuid import uuid4
 from fastapi.responses import StreamingResponse
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, Form
 from sqlalchemy.orm import Session
-from qdealer import crud, models, schemas
-from qdealer.api.dependency import get_current_user, get_db
-from qdealer.api.filters import CarAdFilter
-from qdealer.utils.aws_service import AWSService
+from carmarket import crud, models, schemas
+from carmarket.api.dependency import get_current_user, get_db
+from carmarket.api.filters import CarAdFilter
+from carmarket.utils.aws_service import AWSService
 from io import BytesIO
 from fastapi_filter import FilterDepends
 

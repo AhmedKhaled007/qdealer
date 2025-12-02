@@ -1,8 +1,8 @@
-from qdealer.api.dependency import get_db, get_current_user
-from qdealer.app import app
+from carmarket.api.dependency import get_db, get_current_user
+from carmarket.app import app
 from fastapi.testclient import TestClient
-from qdealer.models import User, CarAd
-from qdealer.schemas import TokenPayload
+from carmarket.models import User, CarAd
+from carmarket.schemas import TokenPayload
 import io
 client = TestClient(app)
 
@@ -25,7 +25,7 @@ def test_create_car_ad__create_ad_and_return_200(monkeypatch, db_dependency, ses
     app.dependency_overrides[get_db] = db_dependency
     app.dependency_overrides[get_current_user] = lambda: User(id=1)
 
-    monkeypatch.setattr("qdealer.utils.aws_service.AWSService.upload_file", lambda *args, **kwargs: None)
+    monkeypatch.setattr("carmarket.utils.aws_service.AWSService.upload_file", lambda *args, **kwargs: None)
     image = io.BytesIO(b"some file data")
     image.name = "test.jpg"
 

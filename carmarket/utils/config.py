@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     AWS_S3_BUCKET_NAME: str
 
     class Config:
-        env_file = "qdealer/.env"
+        env_file = "carmarket/.env"
 
 
 settings = Settings()

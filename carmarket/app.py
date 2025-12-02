@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from qdealer.utils.config import settings
-from qdealer.api import router
+from carmarket.utils.config import settings
+from carmarket.api import router
 from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()

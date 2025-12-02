@@ -1,6 +1,6 @@
-# QDealer
+# CarMarket
 
-# QDealer
+
 
 A FastAPI-based application for buying and selling cars. It allows users to post car advertisements with images, details (brand, model, year, price, kilometers), and manage their listings.
 

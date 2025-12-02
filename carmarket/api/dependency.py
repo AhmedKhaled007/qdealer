@@ -6,10 +6,10 @@ import jwt
 from pydantic import ValidationError
 from sqlalchemy.orm import Session
 
-from qdealer import crud, models, schemas
-from qdealer.utils import security
-from qdealer.utils.config import settings
-from qdealer.db import SessionLocal
+from carmarket import crud, models, schemas
+from carmarket.utils import security
+from carmarket.utils.config import settings
+from carmarket.db import SessionLocal
 
 
 bearer_schema: HTTPBearer = HTTPBearer(bearerFormat="JWT", scheme_name="JWT Bearer")

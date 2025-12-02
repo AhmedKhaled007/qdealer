@@ -6,11 +6,11 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 
-from qdealer.api import dependency
-from qdealer.utils import security
-from qdealer.utils.config import settings
-from qdealer.utils.security import gen_password_hash
-from qdealer import crud, models, schemas
+from carmarket.api import dependency
+from carmarket.utils import security
+from carmarket.utils.config import settings
+from carmarket.utils.security import gen_password_hash
+from carmarket import crud, models, schemas
 
 router = APIRouter()
 

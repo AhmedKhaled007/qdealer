@@ -2,7 +2,7 @@ from typing import Optional
 from fastapi_filter.contrib.sqlalchemy import Filter
 from pydantic import Field
 from fastapi import Query
-from qdealer.models import CarAd
+from carmarket.models import CarAd
 
 
 class CarAdFilter(Filter):

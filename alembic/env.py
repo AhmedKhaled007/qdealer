@@ -1,4 +1,4 @@
-from qdealer.utils.config import settings
+from carmarket.utils.config import settings
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -24,7 +24,7 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from qdealer.models import Base  # noqa
+from carmarket.models import Base  # noqa
 
 target_metadata = Base.metadata
 

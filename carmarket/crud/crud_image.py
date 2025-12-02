@@ -1,9 +1,9 @@
 from typing import List
 from sqlalchemy.orm import Session
 
-from qdealer.crud.base import CRUDBase
-from qdealer.models import Image
-from qdealer.schemas import Image as ImageSchema
+from carmarket.crud.base import CRUDBase
+from carmarket.models import Image
+from carmarket.schemas import Image as ImageSchema
 
 
 class CRUDImage(CRUDBase[Image, ImageSchema]):
